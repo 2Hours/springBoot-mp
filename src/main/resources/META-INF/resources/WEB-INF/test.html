@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="/assets/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+    <form id="form" method="post" enctype="multipart/form-data" action="/file/image/upload">
+        <input type="file" id="test" name="file"><br/>
+        <input type="button" id="submit" name="submit" value="上传" onclick="beforeSubmit()"/>
+        <div id="showImg" style="height: 100px;width: 100px;"></div>
+    </form>
+<script language="JavaScript">
+    function beforeSubmit() {
+        var form = document.getElementById("form");
+        var file = new FormData(form);
+        $.ajax({
+            url:'/file/image/upload',
+            data:file,
+            type:'post',
+            dataType:'json',
+            async: false,
+            contentType: false,
+            processData: false,
+            success:function (data) {
+                var result = data;
+                var html = '<img src="'+result.path+'">';
+                $("#showImg").append(html);
+            }
+
+        })
+    }
+</script>
+
+</body>
+</html>

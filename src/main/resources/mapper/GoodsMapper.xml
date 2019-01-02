@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.hzq.mapper.GoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.hzq.entity.Goods">
+        <id column="goods_id" property="goodsId" />
+        <result column="shop_id" property="shopId" />
+        <result column="sn" property="sn" />
+        <result column="goods_name" property="goodsName" />
+        <result column="described" property="described" />
+        <result column="sales_volume" property="salesVolume" />
+        <result column="month_volume" property="monthVolume" />
+        <result column="inventory" property="inventory" />
+        <result column="shop_price" property="shopPrice" />
+        <result column="see_count" property="seeCount" />
+        <result column="on_sale" property="onSale" />
+        <result column="is_real" property="isReal" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="class_id" property="classId" />
+    </resultMap>
+
+    <resultMap id="GoodsExtention" type="com.shop.hzq.vo.GoodsExtention">
+        <result column="img_url" property="url" />
+        <collection property="goods" resultMap="BaseResultMap"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        goods_id, shop_id, sn, goods_name, described, sales_volume, month_volume, inventory, shop_price, see_count, on_sale, is_real, status, create_time, modify_time, class_id
+    </sql>
+    <select id="searchResult" resultType="java.util.Map">
+        SELECT gs.*,s.*
+        FROM mall_goods gs
+        INNER JOIN shop s ON s.shop_id = gs.shop_id
+        <where>
+            <if test="keyword != null and keyword != ''">
+                AND goods_name LIKE '%'#{keyword}'%'
+            </if>
+        </where>
+        order by gs.create_time desc
+    </select>
+    <select id="getIndexItemByType" resultMap="GoodsExtention">
+        SELECT mg.*,ig.img_url
+        FROM mall_goods mg
+        LEFT JOIN img ig ON ig.owner_id = mg.goods_id
+    </select>
+
+</mapper>

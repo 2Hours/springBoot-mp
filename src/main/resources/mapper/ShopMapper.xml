@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.hzq.mapper.ShopMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shop.hzq.entity.Shop">
+        <id column="shop_id" property="shopId" />
+        <result column="user_id" property="userId" />
+        <result column="province_id" property="provinceId" />
+        <result column="province_name" property="provinceName" />
+        <result column="city_id" property="cityId" />
+        <result column="city_name" property="cityName" />
+        <result column="area_id" property="areaId" />
+        <result column="area_name" property="areaName" />
+        <result column="address" property="address" />
+        <result column="shop_name" property="shopName" />
+        <result column="portrait_url" property="portraitUrl" />
+        <result column="evaluate_man" property="evaluateMan" />
+        <result column="evaluate_num" property="evaluateNum" />
+        <result column="see_count" property="seeCount" />
+        <result column="order_total" property="orderTotal" />
+        <result column="order_count" property="orderCount" />
+        <result column="collect_count" property="collectCount" />
+        <result column="content" property="content" />
+        <result column="mobile" property="mobile" />
+        <result column="start_time" property="startTime" />
+        <result column="end_time" property="endTime" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="work_status" property="workStatus" />
+        <result column="examine_status" property="examineStatus" />
+        <result column="enables" property="enables" />
+        <result column="nature_status" property="natureStatus" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="corp_name" property="corpName" />
+        <result column="corp_identity" property="corpIdentity" />
+        <result column="corp_mobile" property="corpMobile" />
+        <result column="business_type" property="businessType" />
+        <result column="mailbox" property="mailbox" />
+        <result column="id_valid_time" property="idValidTime" />
+        <result column="id_overdue_time" property="idOverdueTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        shop_id, user_id, province_id, province_name, city_id, city_name, area_id, area_name, address, shop_name, portrait_url, evaluate_man, evaluate_num, see_count, order_total, order_count, collect_count, content, mobile, start_time, end_time, longitude, latitude, work_status, examine_status, enables, nature_status, status, create_time, modify_time, corp_name, corp_identity, corp_mobile, business_type, mailbox, id_valid_time, id_overdue_time
+    </sql>
+
+</mapper>
