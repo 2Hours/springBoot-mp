@@ -73,10 +73,6 @@ public class User extends Model<User> {
      */
     private Integer enables;
     /**
-     * 角色权限id
-     */
-    private String roleId;
-    /**
      * 状态：-1、删除 1、正常
      */
     private Integer status;
