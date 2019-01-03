@@ -32,7 +32,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/upload/**").addResourceLocations("file:G:/myProject/upload/");
+        registry.addResourceHandler("/upload/**").addResourceLocations("file:D:/myProject/upload/");
         //registry.addResourceHandler("../fonts/**").addResourceLocations("classpath:/assets/fonts/");
         super.addResourceHandlers(registry);
     }
